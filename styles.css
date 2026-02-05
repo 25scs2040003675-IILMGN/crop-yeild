@@ -700,20 +700,103 @@ section {
 }
 
 /* ===================================
-   FOOTER
+   FOOTER - NIKE MINIMAL STYLE
    =================================== */
 
 .footer {
   background: var(--black);
   color: var(--white);
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-top: 1px solid #222;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+.footer-main {
+  text-align: left;
+}
+
+.footer-brand {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-tagline {
+  font-size: 13px;
+  color: var(--grey-mid);
+  font-weight: 400;
+}
+
+.footer-credits {
   text-align: center;
-  padding: var(--spacing-lg);
 }
 
 .footer-small {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--grey-mid);
-  margin-top: var(--spacing-xs);
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+.footer-signature {
+  text-align: right;
+  border-left: 2px solid #333;
+  padding-left: var(--spacing-md);
+}
+
+.creator-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--grey-mid);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.creator-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+  color: var(--white);
+}
+
+.creator-year {
+  font-size: 12px;
+  color: var(--grey-mid);
+  font-weight: 400;
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .footer-main,
+  .footer-credits,
+  .footer-signature {
+    text-align: center;
+    border: none;
+    padding: 0;
+  }
+
+  .footer-signature {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #333;
+    border-left: none;
+  }
 }
 
 /* ===================================
