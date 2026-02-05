@@ -1,0 +1,34 @@
+{
+  "Country": {
+    "rf_importance": 0.016397747277863486,
+    "xgb_importance": 0.007715720683336258
+  },
+  "Crop": {
+    "rf_importance": 0.6088627317036442,
+    "xgb_importance": 0.4872174859046936
+  },
+  "Year": {
+    "rf_importance": 0.00930280866188092,
+    "xgb_importance": 0.0024288147687911987
+  },
+  "Avg_Rainfall_mm": {
+    "rf_importance": 0.03390264286539652,
+    "xgb_importance": 0.007969179190695286
+  },
+  "Avg_Temp_C": {
+    "rf_importance": 0.031589272400585885,
+    "xgb_importance": 0.0092849126085639
+  },
+  "Pesticides_tonnes": {
+    "rf_importance": 0.011495583096451292,
+    "xgb_importance": 0.0020687973592430353
+  },
+  "Season": {
+    "rf_importance": 0.2876436509168313,
+    "xgb_importance": 0.4810064136981964
+  },
+  "Climate_Zone": {
+    "rf_importance": 0.0008055630773464806,
+    "xgb_importance": 0.002308688824996352
+  }
+}

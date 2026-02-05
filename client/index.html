@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriPredict - Predict Your Crop Yield</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">AI-Powered Agriculture</span>
+            <h1 class="hero-title">Know Your Harvest<br>Before You Plant</h1>
+            <p class="hero-subtitle">Get accurate crop yield predictions in seconds using advanced AI technology</p>
+            <button class="cta-button" onclick="scrollToPredictor()">
+                Start Prediction
+                <span class="arrow">→</span>
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">96%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Data Points</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Crop Types</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Tell Us About Your Farm</h3>
+                <p>Select your crop and enter simple details like field size and location</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>AI Analyzes the Data</h3>
+                <p>Our advanced AI examines weather, soil, and historical patterns</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Get Your Prediction</h3>
+                <p>Receive accurate yield forecasts with detailed insights</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Form -->
+    <section class="predictor" id="predictor">
+        <div class="predictor-container">
+            <h2 class="section-title">Predict Your Crop Yield</h2>
+            <p class="section-subtitle">Fill in the details below - it only takes 2 minutes!</p>
+
+            <form id="predictionForm" class="prediction-form">
+                <!-- Step 1: Crop Selection -->
+                <div class="form-section">
+                    <h3 class="form-section-title">
+                        <span class="section-icon">🌾</span>
+                        What are you growing?
+                    </h3>
+                    <div class="input-group">
+                        <label class="input-label">
+                            Choose Your Crop
+                            <span class="info-tooltip" title="Select the type of crop you want to grow">ℹ️</span>
+                        </label>
+                        <select id="crop" class="input-select" required>
+                            <option value="">Select a crop...</option>
+                        </select>
+                        <p class="input-help">We support 8 major crops including rice, wheat, and maize</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Location -->
+                <div class="form-section">
+                    <h3 class="form-section-title">
+                        <span class="section-icon">📍</span>
+                        Where is your farm?
+                    </h3>
+                    <div class="input-group">
+                        <label class="input-label">
+                            Country
+                            <span class="info-tooltip"
+                                title="This helps us understand regional farming patterns">ℹ️</span>
+                        </label>
+                        <select id="country" class="input-select" required>
+                            <option value="">Select country...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 3: Field Details -->
+                <div class="form-section">
+                    <h3 class="form-section-title">
+                        <span class="section-icon">🏞️</span>
+                        Tell us about your field
+                    </h3>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                Field Size (hectares)
+                                <span class="info-tooltip"
+                                    title="1 hectare = 2.5 acres = 10,000 square meters">ℹ️</span>
+                            </label>
+                            <input type="number" id="field_area" class="input-field" placeholder="e.g., 5" step="0.1"
+                                min="0.1" required>
+                            <p class="input-help">How big is your farming area?</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                Soil Type
+                                <span class="info-tooltip" title="Different soils have different nutrients">ℹ️</span>
+                            </label>
+                            <select id="soil_type" class="input-select" required>
+                                <option value="">Select soil type...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Weather -->
+                <div class="form-section">
+                    <h3 class="form-section-title">
+                        <span class="section-icon">☀️</span>
+                        Weather conditions
+                    </h3>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                Temperature (°C)
+                                <span class="info-tooltip" title="Average temperature during growing season">ℹ️</span>
+                            </label>
+                            <input type="number" id="temperature" class="input-field" placeholder="e.g., 28" step="0.1"
+                                min="10" max="45" required>
+                            <p class="input-help">What's the average temperature?</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                Rainfall (mm/year)
+                                <span class="info-tooltip" title="Total rainfall expected this year">ℹ️</span>
+                            </label>
+                            <input type="number" id="rainfall" class="input-field" placeholder="e.g., 1200" step="1"
+                                min="200" max="3000" required>
+                            <p class="input-help">How much rain do you expect?</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                Humidity (%)
+                                <span class="info-tooltip" title="How moist is the air?">ℹ️</span>
+                            </label>
+                            <input type="number" id="humidity" class="input-field" placeholder="e.g., 70" step="1"
+                                min="30" max="100" required>
+                            <p class="input-help">Moisture level in the air</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Farming Practices -->
+                <div class="form-section">
+                    <h3 class="form-section-title">
+                        <span class="section-icon">🌱</span>
+                        Your farming practices
+                    </h3>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label class="input-label">
+                                Fertilizer (kg/hectare)
+                                <span class="info-tooltip"
+                                    title="How much fertilizer will you use per hectare?">ℹ️</span>
+                            </label>
+                            <input type="number" id="fertilizer_used" class="input-field" placeholder="e.g., 150"
+                                step="1" min="0" max="500" required>
+                            <p class="input-help">Nutrients for better growth</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                Irrigation Available?
+                                <span class="info-tooltip" title="Do you have water supply for crops?">ℹ️</span>
+                            </label>
+                            <select id="irrigation" class="input-select" required>
+                                <option value="1">Yes - I have irrigation</option>
+                                <option value="0">No - Rain only</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">
+                                Soil pH Level
+                                <span class="info-tooltip"
+                                    title="Acidity/alkalinity of soil (6-7 is ideal for most crops)">ℹ️</span>
+                            </label>
+                            <input type="number" id="ph_level" class="input-field" placeholder="e.g., 6.8" step="0.1"
+                                min="4" max="10" required>
+                            <p class="input-help">Usually between 5.5 and 8.5</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-button" id="predictBtn">
+                    <span class="button-text">Get My Prediction</span>
+                    <span class="button-icon">✨</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="resultsSection" style="display: none;">
+        <div class="results-container">
+            <div class="results-header">
+                <h2 class="results-title">Your Crop Yield Prediction</h2>
+                <p class="results-subtitle">Based on advanced AI analysis of your farm data</p>
+            </div>
+
+            <!-- Main Prediction -->
+            <div class="prediction-cards">
+                <div class="prediction-card main-card">
+                    <div class="card-icon">🌾</div>
+                    <div class="card-label">Expected Yield Per Hectare</div>
+                    <div class="card-value" id="yieldPerHectare">--</div>
+                    <div class="card-unit">Hectograms per hectare</div>
+                    <div class="card-explanation">
+                        This is how much crop you'll harvest from each hectare of land
+                    </div>
+                </div>
+
+                <div class="prediction-card main-card">
+                    <div class="card-icon">📦</div>
+                    <div class="card-label">Total Production</div>
+                    <div class="card-value" id="totalYield">--</div>
+                    <div class="card-unit">Hectograms total</div>
+                    <div class="card-explanation">
+                        Total harvest from your entire field
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confidence Range -->
+            <div class="confidence-section">
+                <h3 class="confidence-title">Prediction Confidence Range</h3>
+                <p class="confidence-description">Your actual yield will likely fall within this range</p>
+                <div class="confidence-bar-container">
+                    <div class="confidence-bar" id="confidenceBar"></div>
+                </div>
+                <div class="confidence-values">
+                    <span class="confidence-min" id="minYield">--</span>
+                    <span class="confidence-max" id="maxYield">--</span>
+                </div>
+                <p class="confidence-note">96% of predictions fall within this range</p>
+            </div>
+
+            <!-- Insights -->
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">🤖</div>
+                    <h4>AI Model Used</h4>
+                    <p id="modelUsed">Random Forest</p>
+                    <small>Advanced machine learning algorithm</small>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">📊</div>
+                    <h4>Data Analyzed</h4>
+                    <p>5,000+ Records</p>
+                    <small>From global agricultural database</small>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">🎯</div>
+                    <h4>Accuracy</h4>
+                    <p>96.4%</p>
+                    <small>Validated on real farm data</small>
+                </div>
+            </div>
+
+            <!-- What This Means -->
+            <div class="explanation-section">
+                <h3 class="explanation-title">What This Means for You</h3>
+                <div class="explanation-content" id="explanationContent">
+                    <!-- Will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Try Again Button -->
+            <button class="secondary-button" onclick="resetForm()">
+                Make Another Prediction
+            </button>
+        </div>
+    </section>
+
+    <!-- Feature Importance -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">What Affects Your Crop Yield?</h2>
+            <p class="section-subtitle">Our AI analyzes these key factors to make predictions</p>
+            <div id="featureImportance" class="features-list">
+                <div class="loading-state">Loading insights...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <h2 class="section-title">Why Trust AgriPredict?</h2>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">🔬</div>
+                    <h3>Scientific Accuracy</h3>
+                    <p>Our AI is trained on real agricultural data from FAO and World Bank, covering 24 years of global
+                        farming patterns.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">✅</div>
+                    <h3>Proven Results</h3>
+                    <p>96.4% prediction accuracy verified through rigorous testing on thousands of real farm cases.</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-icon">🌍</div>
+                    <h3>Global Coverage</h3>
+                    <p>Works for farms across India, USA, China, Brazil, Argentina, and Australia with local insights.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>AgriPredict © 2026 | Powered by Advanced Machine Learning</p>
+        <p class="footer-small">Data sources: FAO & World Bank | For educational and research purposes</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+# Vercel Python Runtime Requirements
+# Keep this minimal for fast cold starts
+
+# No ML libraries needed for the optimized serverless version
+# numpy==1.24.3
+# scikit-learn==1.3.0
+# joblib==1.3.2
+
+# The serverless functions use pure Python algorithms
+# This keeps deployment fast and within Vercel's limits
